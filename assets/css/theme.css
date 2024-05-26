@@ -19,8 +19,128 @@
   width: 1440px;
   height: 80px;
 }
+.logo {
+  width: 216px;
+  height: 14px;
+  top: 31px;
+  left: 146px;
+}
 .menu a {
   text-decoration: none;
   font-family: "space-mono-Regular";
   padding: 8px 16px;
+  color: #000000;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23.7px;
+}
+
+/************************ moadal *******************/
+
+.hidden {
+    display: none;
+}
+
+#overlay {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+}
+
+.close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: black;
+    text-decoration: none;
+}
+
+/* body #contact-modal {
+  display: none;
+  background: white;
+  width: 597px;
+  height: 769px;
+  border: 5px solid #000;
+  z-index: 9999;
+  overflow: hidden;
+  margin: auto;
+}
+body #contact-modal form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+body #contact-modal form p {
+  margin: 0;
+}
+body #contact-modal img {
+  margin: 18px auto 45.95px -16.31%;
+}
+body #contact-modal .close-modal {
+  display: none;
+}
+body #contact-modal label {
+  display: block;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  color: #000;
+}
+body #contact-modal input[type="text"],
+body #contact-modal input[type="email"],
+body #contact-modal input[type="submit"] {
+  width: 263px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid #c4c4c4;
+}
+body #contact-modal textarea {
+  width: 263px;
+  height: 210px;
+  border-radius: 8px;
+  border: 1px solid #c4c4c4;
+}
+body #contact-modal input[type="submit"] {
+  width: 263px;
+  height: 50px;
+  background-color: #d8d8d8;
+  color: #000;
+  border-radius: 2px;
+  box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.02);
+  border: none;
+  cursor: pointer;
+} */
+/******************* fin de modal *********************/
+
+#footer {
+  display: flex;
+  align-items: center;
 }

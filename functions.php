@@ -4,7 +4,8 @@ add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 function theme_enqueue_styles()
 {
     wp_enqueue_style('theme-style', get_stylesheet_directory_uri() . '/assets/css/theme.css', array(), filemtime(get_stylesheet_directory() . '/assets/css/theme.css'));
-    wp_enqueue_style('space-mono-font', get_template_directory_uri() . 'assets/fonts/space-mono/SpaceMono-Regular.woff2', array(), '1.0.0');
+    wp_enqueue_script('mon-script', get_theme_file_uri() . '/assets/scripts/script.js');
+    // wp_enqueue_style('space-mono-font', get_template_directory_uri() . 'assets/fonts/space-mono/SpaceMono-Regular.woff2', array(), '1.0.0');
 }
 
 function montheme_supports()
