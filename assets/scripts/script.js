@@ -19,3 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 });
+
+
+
+// categorie et filter

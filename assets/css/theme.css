@@ -1,7 +1,15 @@
+/************************** fonts ***************************/
 @font-face {
   font-family: "space-mono";
-  src: url("../fonts/SpaceMono-Regular.ttf") format("woff2");
+  src: url("../fonts/SpaceMono-Regular.woff2") format("woff2");
   font-weight: 400;
+  font-style: regular;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-Regular.woff2") format("woff2");
+  font-weight: 300;
   font-style: regular;
   font-display: swap;
 }
@@ -10,6 +18,7 @@
   max-width: 1440px;
   margin: 0 auto;
 }
+/*************** menu de navigation *******************/
 .nav-bar {
   display: flex;
   align-items: center;
@@ -21,7 +30,6 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-
 }
 
 .menu a {
@@ -52,7 +60,7 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
 }
-/*************** version desktop ***************/
+/*************** modal version desktop ***************/
 #contact-modal {
   background: white;
   width: 497px;
@@ -96,6 +104,7 @@
   height: 110px;
   border-radius: 8px;
   border: 1px solid #c4c4c4;
+  resize: none;
 }
 #contact-modal input[type="submit"] {
   width: 263px;
@@ -117,6 +126,7 @@
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
+  visibility: hidden;
 }
 
 .close-modal:hover,
@@ -124,7 +134,6 @@
   color: black;
   text-decoration: none;
 }
-
 /******************* fin de modal *********************/
 
 #menu-footer-menu {
