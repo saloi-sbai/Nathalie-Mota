@@ -29,22 +29,25 @@
             <button class="dropdown_toggle"><i class="fas fa-chevron-down"></i>CATEGORIES</button>
             <ul class="dropdown_list">
                 <li data-value="" data-label='Toutes'>TOUTES</li>
+
                 <?php
+                // Récupèrer toutes les catégories de la taxonomie 'categorie' 
                 $categories = get_terms(array(
                     'taxonomy'   => 'categorie',
-                    'hide_empty' => false,
+                    'hide_empty' => false, // ne pas cacher les termes vides
                 ));
 
+                // Boucle à travers chaque catégorie récupérée.
                 foreach ($categories as $category) {
-                    $label = get_field('label', $category);
+                    $label = get_field('label', $category); // récupèrer la valeur du champ
                     $label = $label ? $label : $category->name;
                     echo '<li data-value="' . esc_attr($category->slug) . '" data-label="' . esc_attr($label) . '">' . esc_html($label) . '</li>';
                 }
                 ?>
             </ul>
         </div>
-
     </div>
+
     <div class="filters format">
         <label class="filter_label" for="format_filter">FORMAT</label>
         <div class="dropdown" id="format_dropdown">
@@ -65,19 +68,17 @@
                 ?>
             </ul>
         </div>
-
     </div>
+
     <div class="filters date">
         <label class="filter_label" for="date_filter">DATES</label>
         <div class="dropdown" id="date_dropdown">
             <button class="dropdown_toggle"><i class="fas fa-chevron-down"></i>DATES</button>
             <ul class="dropdown_list">
                 <li data-value="recent" data-label='plus récentes'>Plus récentes</li>
-                <li data-value="old" data-label='plus enciennes'>Plus enciennes</li>
-
+                <li data-value="old" data-label='plus anciennes'>Plus anciennes</li>
             </ul>
         </div>
-
     </div>
 </section>
 
@@ -92,7 +93,6 @@ $query = new WP_Query($args);
 
 if ($query->have_posts()) :
 ?>
-
     <section class="photos_section">
         <div class="photos_container">
             <?php while ($query->have_posts()) : $query->the_post(); ?>

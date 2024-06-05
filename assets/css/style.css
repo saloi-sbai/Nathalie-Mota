@@ -4,13 +4,14 @@
 }
 
 .hero_banner_title {
-  font-family: "Space Mono";
-  font-size: 96px;
+  font-family: "space-mono";
+  font-style: italic;
+  font-size: 6em;
   font-weight: 700;
   white-space: nowrap;
   text-align: center;
   position: absolute;
-  -webkit-text-stroke: 3px #ffffff;
+  -webkit-text-stroke: 1px #ffffff;
   -webkit-text-fill-color: rgba(0, 0, 0, 0);
   top: 50%;
   left: 50%;
@@ -156,6 +157,80 @@
   background-color: #d8d8d8;
   color: white;
   box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.02);
+}
+
+.photo_details {
+  display: flex;
+}
+
+.details {
+  width: 50vw;
+  align-self: flex-end;
+}
+.details .title {
+  font-family: space-mono;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 66px;
+  line-height: 58px;
+  text-transform: uppercase;
+  width: 50%;
+}
+.details .property {
+  font-family: space-mono;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20.73px;
+  color: #000000;
+}
+.details hr {
+  width: 95%;
+  margin-left: 0;
+  border: 1px solid black;
+}
+
+.photo {
+  width: 50vw;
+  align-items: flex-end;
+}
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.interet {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  height: 118px;
+}
+.interet .interet_contact {
+  display: flex;
+  justify-content: space-around;
+  width: 50vw;
+}
+.interet .interet_contact .text {
+  font-family: Poppins;
+  font-weight: 300;
+  font-size: 0.87rem;
+  line-height: 21px;
+  color: #000000;
+}
+.interet .interet_contact .grey-btn {
+  width: 263px;
+  height: 50px;
+  background-color: #d8d8d8;
+  color: #000;
+  border-radius: 2px;
+  box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.02);
+  border: none;
+  cursor: pointer;
+  font-family: Poppins;
+}
+.interet .interet_navigation {
+  display: flex;
+  gap: 20px;
 }
 
 /*# sourceMappingURL=style.css.map */
