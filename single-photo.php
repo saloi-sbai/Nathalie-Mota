@@ -25,7 +25,8 @@ get_header(); ?>
                         <?php echo the_post_thumbnail(); ?>
                     </div>
                 </div>
-                <!---------------- div interet ------------------->
+
+                <!---------------- div interet et navigation ------------------->
                 <div class="interet">
                     <div class="interet_contact">
                         <p class="text">Cette photo vous intéresse ?</p>
@@ -33,17 +34,29 @@ get_header(); ?>
                     </div>
                     <div class="interet_navigation">
                         <?php
-                        // Replace the image URLs with your actual arrow image URLs
+                        $next_photo = get_next_post();
+                        $previous_photo = get_previous_post();
+
+                        $next_photo_image = get_the_post_thumbnail($next_photo->ID);
+                        $previous_photo_image = get_the_post_thumbnail($previous_photo->ID);
+
+                        $next_photo_url = get_the_permalink($next_photo->ID);
+                        $previous_photo_url = get_the_permalink($previous_photo->ID);
+
+                        var_dump($next_photo_url);
+                        var_dump($previous_photo_url);
+                        // Définition des URLs des images des flèches
                         $previous_arrow_image_url = get_template_directory_uri() . '/assets/images/previous.png';
                         $next_arrow_image_url = get_template_directory_uri() . '/assets/images/next.png';
 
-                        // Custom format strings for previous and next post links with arrow images
+                        // Format des liens de navigation 
                         $previous_link_format = '<img src="' . $previous_arrow_image_url . '" alt="Previous Post" />';
                         $next_link_format = '<img src="' . $next_arrow_image_url . '" alt="Next Post" />';
                         ?>
 
                         <div class="previous-wrapper">
                             <div class="thumbnail">
+                                <!-- Récupération et affichage de la miniature du post précédent -->
                                 <?php
                                 $previous_post = get_previous_post();
                                 echo get_the_post_thumbnail($previous_post, [100, 100]);
@@ -53,6 +66,7 @@ get_header(); ?>
                                 <?php previous_post_link('%link', $previous_link_format); ?>
                             </div>
                         </div>
+
                         <div class="next-wrapper">
                             <div class="thumbnail">
                                 <?php
@@ -67,13 +81,50 @@ get_header(); ?>
                     </div>
                 </div>
             </div>
-
-
             <!----------------- Affichage des photos apparentés -------------->
 
             <div class="similar-photos" id=similar-photos>
                 <h2 class="subtitle">Vous aimeriez AUSSI</h2>
-                <div class=photos></div>
+                <div class=photos>
+
+                    <!-- récupérer la catégorie de l'image -->
+                    <!-- get_the_terms(id, taxonomie) -->
+                    <?php
+                    $categories = get_the_terms(get_the_ID(), 'categorie');
+                    // var_dump($categories);
+                    ?>
+                    <!-- lire 2 images qui ont la même catégorie (exclure l'image en cours) -->
+                    <?php
+                    $args = array(
+                        'post_type'         =>  'photo',
+                        'posts_per_page'    =>  2,
+                        'orderby'           =>  'rand',
+                        'tax_query'         =>  array(
+                            array(
+                                'taxonomy'  =>  'categorie',
+                                'field'    =>  'slug',
+                                'terms'     =>  $categories[0]->slug,
+                            ),
+                        ),
+                    );
+
+                    $query = new WP_Query($args);
+
+                    // var_dump($query->have_posts());
+
+                    while ($query->have_posts()) : $query->the_post();
+
+                        the_title('<h1>', '</h1>');
+
+                    endwhile;
+
+                    wp_reset_postdata();
+
+                    ?>
+
+
+
+                </div>
             </div>
 
         <?php

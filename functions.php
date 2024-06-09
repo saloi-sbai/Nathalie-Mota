@@ -7,6 +7,7 @@ function theme_enqueue_styles()
     wp_enqueue_style('style', get_stylesheet_directory_uri() . '/assets/css/style.css', time());
     wp_enqueue_style('fontawesome', get_stylesheet_directory_uri() . '/assets/css/all.min.css');
     wp_enqueue_script('mon-script', get_theme_file_uri() . '/assets/scripts/script.js');
+    wp_enqueue_script('filters', get_theme_file_uri() . '/assets/scripts/filters.js');
     wp_enqueue_script('fontawesome-script', get_theme_file_uri() . '/assets/scripts/all.min.js');
     wp_enqueue_script('jquery');
 }

@@ -26,10 +26,9 @@
     <div class="filters category">
         <label class="filter_label" for="category_filter">CATEGORIES</label>
         <div class="dropdown" id="category_dropdown">
-            <button class="dropdown_toggle"><i class="fas fa-chevron-down"></i>CATEGORIES</button>
+            <button class="dropdown_toggle">CATEGORIES<i class="fas fa-chevron-down"></i></button>
             <ul class="dropdown_list">
                 <li data-value="" data-label='Toutes'>TOUTES</li>
-
                 <?php
                 // Récupèrer toutes les catégories de la taxonomie 'categorie' 
                 $categories = get_terms(array(
@@ -37,21 +36,25 @@
                     'hide_empty' => false, // ne pas cacher les termes vides
                 ));
 
-                // Boucle à travers chaque catégorie récupérée.
+                // Boucle à travers chaque catégorie récupérée
+                //var_dump($categories);
                 foreach ($categories as $category) {
                     $label = get_field('label', $category); // récupèrer la valeur du champ
                     $label = $label ? $label : $category->name;
+                    // var_dump(esc_attr($category->slug));
+
                     echo '<li data-value="' . esc_attr($category->slug) . '" data-label="' . esc_attr($label) . '">' . esc_html($label) . '</li>';
                 }
                 ?>
             </ul>
+
         </div>
     </div>
 
     <div class="filters format">
         <label class="filter_label" for="format_filter">FORMAT</label>
         <div class="dropdown" id="format_dropdown">
-            <button class="dropdown_toggle"><i class="fas fa-chevron-down"></i>FORMAT</button>
+            <button class="dropdown_toggle">FORMAT<i class="fas fa-chevron-down"></i></button>
             <ul class="dropdown_list">
                 <li data-value="" data-label='Toutes'>TOUS</li>
                 <?php
@@ -73,7 +76,7 @@
     <div class="filters date">
         <label class="filter_label" for="date_filter">DATES</label>
         <div class="dropdown" id="date_dropdown">
-            <button class="dropdown_toggle"><i class="fas fa-chevron-down"></i>DATES</button>
+            <button class="dropdown_toggle">TRIER PAR<i class="fas fa-chevron-down"></i></button>
             <ul class="dropdown_list">
                 <li data-value="recent" data-label='plus récentes'>Plus récentes</li>
                 <li data-value="old" data-label='plus anciennes'>Plus anciennes</li>
@@ -83,7 +86,7 @@
 </section>
 
 <?php
-// parametre de la requete
+// parametre de la requete pour afficher les photos du catalogue
 $args = array(
     'post_type'      => 'photo',
     'posts_per_page' => 8,
@@ -104,7 +107,7 @@ if ($query->have_posts()) :
             <?php endwhile;
             wp_reset_postdata(); ?>
         </div>
-        <!-- bouton pour charger plus d'images -->
+        <!------------------- bouton pour charger plus d'images --------------->
         <div class="load_more">
             <button id="load_more_button">Charger plus</button>
         </div>
