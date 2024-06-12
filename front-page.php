@@ -107,7 +107,13 @@ if ($query->have_posts()) :
             <?php endwhile;
             wp_reset_postdata(); ?>
         </div>
+
         <!------------------- bouton pour charger plus d'images --------------->
+        <!-- <div class="btn-container">
+            <a id="load-more" href="<?php echo home_url('/'); ?>">
+                <span class="btn more-btn">Charger plus</span>
+            </a>
+        </div> -->
         <div class="load_more">
             <button id="load_more_button">Charger plus</button>
         </div>

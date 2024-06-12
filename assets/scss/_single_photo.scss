@@ -71,3 +71,22 @@
     gap: 20px;
   }
 }
+.subtitle {
+  font-family: "space-mono";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26.66px;
+  text-transform: uppercase;
+}
+.photos {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  margin-bottom: 70px;
+  margin-top: 40px;
+}
+.photos img {
+  width: 705px;
+  height: 495px;
+  object-fit: cover;
+}

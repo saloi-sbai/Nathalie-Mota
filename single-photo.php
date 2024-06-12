@@ -43,8 +43,6 @@ get_header(); ?>
                         $next_photo_url = get_the_permalink($next_photo->ID);
                         $previous_photo_url = get_the_permalink($previous_photo->ID);
 
-                        var_dump($next_photo_url);
-                        var_dump($previous_photo_url);
                         // Définition des URLs des images des flèches
                         $previous_arrow_image_url = get_template_directory_uri() . '/assets/images/previous.png';
                         $next_arrow_image_url = get_template_directory_uri() . '/assets/images/next.png';
@@ -91,7 +89,6 @@ get_header(); ?>
                     <!-- get_the_terms(id, taxonomie) -->
                     <?php
                     $categories = get_the_terms(get_the_ID(), 'categorie');
-                    // var_dump($categories);
                     ?>
                     <!-- lire 2 images qui ont la même catégorie (exclure l'image en cours) -->
                     <?php
@@ -110,19 +107,15 @@ get_header(); ?>
 
                     $query = new WP_Query($args);
 
-                    // var_dump($query->have_posts());
-
                     while ($query->have_posts()) : $query->the_post();
 
-                        the_title('<h1>', '</h1>');
-
+                        // the_title('<h1>', '</h1>');
+                        the_post_thumbnail();
                     endwhile;
 
                     wp_reset_postdata();
 
                     ?>
-
-
 
                 </div>
             </div>
