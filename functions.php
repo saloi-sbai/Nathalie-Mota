@@ -16,7 +16,13 @@ function theme_enqueue_styles()
     wp_enqueue_script('mon-script', get_theme_file_uri() . '/assets/scripts/script.js');
     wp_enqueue_script('filters', get_theme_file_uri() . '/assets/scripts/filters.js');
     wp_enqueue_script('fontawesome-script', get_theme_file_uri() . '/assets/scripts/all.min.js');
-    //wp_enqueue_script('jquery', get_theme_file_uri() . '/assets/scripts/jquery.js', ['jquery'], '1.0', true);
+    wp_enqueue_script('jquery');
+    wp_enqueue_script('load-more', get_template_directory_uri() . '/assets/scripts/load-more.js', array('jquery'), '1.0.0', true);
+    wp_enqueue_script('script', get_template_directory_uri() . '/assets/scripts/filters.js', array('jquery'), '1.0.0', true);
+    // Localise le script pour y ajouter des variables spécifiques à WordPress
+    wp_localize_script('load-more', 'my_ajax_obj', array(
+        'ajax_url' => admin_url('admin-ajax.php')
+    ));
 }
 
 
