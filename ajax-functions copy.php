@@ -1,7 +1,6 @@
 <?php
 // function pour traiter la requete ajax
-function loadMore()
-{
+function loadMore() {
     $paged = $_POST['paged'];
     $posts_per_page = 8;
     $ajaxposts = new WP_Query(array(
@@ -15,26 +14,22 @@ function loadMore()
 
     $response = '';
     $has_more_posts = false;
-    $count = 0;
-
     if ($ajaxposts->have_posts()) {
-        ob_start();
-        while ($ajaxposts->have_posts()) : $ajaxposts->the_post();
-            $count++;
-?>
+        ob_start(); 
+        while ($ajaxposts->have_posts()) : $ajaxposts->the_post(); ?>
             <div class="photo_item">
                 <a href="<?php echo esc_url(get_permalink()); ?>">
                     <img src="<?php echo esc_url(wp_get_attachment_image_url(get_post_thumbnail_id(), 'desktop-home')); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" class="photo_image">
                 </a>
             </div>
-<?php
+        <?php
         endwhile;
         $response = ob_get_clean();
         $has_more_posts = $ajaxposts->max_num_pages > $paged;
         wp_reset_postdata();
     }
-
-    echo json_encode(array('html' => $response, 'has_more_posts' => $has_more_posts, 'count' => $count));
+    
+    echo json_encode(array('html' => $response, 'has_more_posts' => $has_more_posts));
     wp_die();
 }
 add_action('wp_ajax_loadMore', 'loadMore');

@@ -1,46 +1,41 @@
-function initializeFilters() {
-  let activeCategory = "all";
-  let activeFormat = "all";
-  let activeSortByDate = "all";
-  jQuery("#categories").val(activeCategory);
-  jQuery("#formats").val(activeFormat);
-  jQuery("#sort-by-date").val(activeSortByDate);
-  function areFiltersActive() {
-    return (
-      activeCategory !== "all" ||
-      activeFormat !== "all" ||
-      activeSortByDate !== "all"
-    );
-  }
-  // Event handler for filter changes
-  jQuery("#categories, #formats, #sort-by-date").on("change", function () {
-    ajaxFilter();
-  });
-  function ajaxFilter() {
-    let category = jQuery("#categories").val();
-    let format = jQuery("#formats").val();
-    let sortByDate = jQuery("#sort-by-date").val();
-    // Update active filter states
-    activeCategory = category;
-    activeFormat = format;
-    activeSortByDate = sortByDate;
-    // Hide the "Load More" button if filters are active
-    if (areFiltersActive()) {
-      jQuery("#load-more").hide();
-    }
-    jQuery.ajax({
+jQuery(document).ready(function ($) {
+  // Initialize Select2
+  $("#categoryFilter").select2();
+  $("#formatFilter").select2();
+  $("#date_dropdown").select2();
+
+  function fetchFilteredPhotos(page = 1) {
+    let category = $("#categoryFilter").val();
+    let format = $("#formatFilter").val();
+    let date = $("#date_dropdown").val();
+
+    $.ajax({
+      url: ajaxurl, // `ajaxurl` is a global variable in WordPress
       type: "POST",
-      url: "http://localhost:8080/nathalie-mota/wp-admin/admin-ajax.php",
       data: {
-        action: "ajaxFilter",
+        action: "filter_photos",
         category: category,
         format: format,
-        sortByDate: sortByDate,
+        date: date,
+        page: page,
       },
       success: function (response) {
-        jQuery(".gallery-container").html(response);
-        // Show the "Load More" button if no filters are active
+        if (page === 1) {
+          $(".photos_container").html(response);
+        } else {
+          $(".photos_container").append(response);
+        }
       },
     });
   }
-}
+
+  $("#categoryFilter, #formatFilter, #date_dropdown").on("change", function () {
+    fetchFilteredPhotos();
+  });
+
+  $("#load_more_button").on("click", function () {
+    let page = $(this).data("page");
+    $(this).data("page", page + 1);
+    fetchFilteredPhotos(page + 1);
+  });
+});

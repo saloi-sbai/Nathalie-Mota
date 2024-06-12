@@ -1,93 +1,6 @@
-// .filters_section {
-//   display: flex;
-//   align-items: center;
-//   margin-top: 80px;
-//   margin-left: 144px;
-//   gap: 40px;
+// Import Select2 default styles
+@import url("https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css");
 
-//   .date {
-//     margin-left: 300px;
-//   }
-//   .filters {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//   }
-//   .filter_label {
-//     font-family: "Poppins", sans-serif;
-//     display: none;
-//   }
-//   .dropdown {
-//     position: relative;
-//     .dropdown_toggle {
-//       width: 260px;
-//       height: 42px;
-//       border-radius: 8px;
-//       border: 1.3px solid var(--Blues-Gray2, #b8bbc2);
-//       background: var(--White, #fff);
-//       display: flex;
-//       padding: 11px 18px;
-//       justify-content: space-between;
-//       align-items: center;
-//       align-self: stretch;
-//       cursor: pointer;
-//       color: var(--Black, #313144);
-//       font-family: Poppins;
-//       font-size: 12px;
-//       font-style: normal;
-//       font-weight: 500;
-//       line-height: 18px;
-//       letter-spacing: 0.36px;
-//       i {
-//         position: absolute;
-//         right: 18px;
-//         top: 50%;
-//         transform: translateY(-50%);
-//       }
-//     }
-//     .dropdown_list {
-//       color: var(--Black, #313144);
-//       font-family: Poppins;
-//       font-size: 12px;
-//       font-style: normal;
-//       font-weight: 500;
-//       line-height: 18px;
-//       letter-spacing: 0.36px;
-//       position: absolute;
-//       z-index: 1;
-//       display: none;
-//       list-style-type: none;
-//       border-radius: 0px 0px 8px 8px;
-//       background: var(--White, #fff);
-//       width: 260px;
-//       height: 218px;
-//       padding-left: 0px;
-//     }
-//     .dropdown-list.show {
-//       display: flex;
-//       flex-direction: column;
-//       justify-content: flex-end;
-
-//       li {
-//         padding-top: 11px;
-//         padding-bottom: 11px;
-//         padding-left: 24px;
-
-//         &:hover {
-//           background-color: #ffd6d6;
-//         }
-
-//         &:active {
-//           background-color: #fe5858;
-//         }
-
-//         &.selected {
-//           background-color: #e00000;
-//         }
-//       }
-//     }
-//   }
-// }
 .filters_section {
   display: flex;
   align-items: center;
@@ -96,87 +9,48 @@
   gap: 40px;
 
   .date {
-    margin-left: 290px;
+    margin-left: 750px;
   }
-
-  .filters {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    .filter_label {
-      font-family: "Poppins", sans-serif;
-      display: none;
-    }
-    .dropdown {
-      position: relative;
-      .dropdown_toggle {
-        width: 260px;
-        height: 42px;
-        border-radius: 8px;
-        border: 1.3px solid #b8bbc2;
-        background: #fff;
-        display: flex;
-        padding: 11px 18px;
-        justify-content: space-between;
-        align-items: center;
-        align-self: stretch;
-        cursor: pointer;
-        color: #313144;
-        font-family: Poppins;
-        font-size: 12px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 18px;
-        letter-spacing: 0.36px;
-        i {
-          position: absolute;
-          right: 18px;
-          top: 50%;
-          transform: translateY(-50%);
-        }
-      }
-      .dropdown_list {
-        color: #313144;
-        font-family: Poppins;
-        font-size: 12px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 18px;
-        letter-spacing: 0.36px;
-        position: absolute;
-        z-index: 1;
-        // display: none;
-        list-style-type: none;
-        border-radius: 0px 0px 8px 8px;
-        background: #fff;
-        width: 260px;
-        height: 218px;
-        padding-left: 0px;
-      }
-      .dropdown-list.show {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-
-        li {
-          padding-top: 11px;
-          padding-bottom: 11px;
-          padding-left: 24px;
-
-          &:hover {
-            background-color: #ffd6d6;
-          }
-
-          &:active {
-            background-color: #fe5858;
-          }
-
-          &.selected {
-            background-color: #e00000;
-          }
-        }
-      }
-    }
+  // .filters {
+  //   display: flex;
+  //   flex-direction: column;
+  //   align-items: center;
+  // }
+  .filter_label {
+    font-family: "Poppins", sans-serif;
+    display: none;
   }
+  
+}
+
+.select2-container--default .select2-selection--single {
+  height: 38px;
+  line-height: 36px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 6px 12px;
+}
+
+.select2-container--default
+  .select2-selection--single
+  .select2-selection__rendered {
+  color: #333;
+  line-height: 36px;
+}
+
+.select2-container--default .select2-results__option[aria-selected="true"] {
+  background-color: red;
+  color: white;
+}
+
+.select2-container--default
+  .select2-selection--multiple
+  .select2-selection__choice {
+  background-color: red;
+  color: white;
+}
+
+.select2-container .select2-dropdown {
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }

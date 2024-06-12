@@ -22,68 +22,47 @@
 </div>
 
 <!---------------------- filtres et galerie ------------------------------->
-<section class="filters_section">
+<div class="filters_section">
     <div class="filters category">
         <label class="filter_label" for="category_filter">CATEGORIES</label>
-        <div class="dropdown" id="category_dropdown">
-            <button class="dropdown_toggle">CATEGORIES<i class="fas fa-chevron-down"></i></button>
-            <ul class="dropdown_list">
-                <li data-value="" data-label='Toutes'>TOUTES</li>
-                <?php
-                // Récupèrer toutes les catégories de la taxonomie 'categorie' 
-                $categories = get_terms(array(
-                    'taxonomy'   => 'categorie',
-                    'hide_empty' => false, // ne pas cacher les termes vides
-                ));
-
-                // Boucle à travers chaque catégorie récupérée
-                //var_dump($categories);
-                foreach ($categories as $category) {
-                    $label = get_field('label', $category); // récupèrer la valeur du champ
-                    $label = $label ? $label : $category->name;
-                    // var_dump(esc_attr($category->slug));
-
-                    echo '<li data-value="' . esc_attr($category->slug) . '" data-label="' . esc_attr($label) . '">' . esc_html($label) . '</li>';
-                }
-                ?>
-            </ul>
-
-        </div>
+        <select class="dropdown_list" id="categoryFilter">
+            <option value="">CATEGORIES</option>
+            <?php
+            $categories = get_terms(array('taxonomy' => 'categorie', 'hide_empty' => false));
+            foreach ($categories as $category) {
+                $label = get_field('label', $category) ?: $category->name;
+                echo '<option value="' . esc_attr($category->slug) . '">' . esc_html($label) . '</option>';
+            }
+            ?>
+        </select>
     </div>
 
     <div class="filters format">
-        <label class="filter_label" for="format_filter">FORMAT</label>
-        <div class="dropdown" id="format_dropdown">
-            <button class="dropdown_toggle">FORMAT<i class="fas fa-chevron-down"></i></button>
-            <ul class="dropdown_list">
-                <li data-value="" data-label='Toutes'>TOUS</li>
-                <?php
-                $formats = get_terms(array(
-                    'taxonomy'   => 'format',
-                    'hide_empty' => false,
-                ));
-
-                foreach ($formats as $format) {
-                    $label = get_field('label', $format);
-                    $label = $label ? $label : $format->name;
-                    echo '<li data-value="' . esc_attr($format->slug) . '" data-label="' . esc_attr($label) . '">' . esc_html($label) . '</li>';
-                }
-                ?>
-            </ul>
-        </div>
+        <label class="filter_label" for="format_filter">FORMATS</label>
+        <select class="dropdown_list" id="formatFilter">
+            <option value="">FORMATS</option>
+            <?php
+            $formats = get_terms(array('taxonomy' => 'format', 'hide_empty' => false));
+            foreach ($formats as $format) {
+                $label = get_field('label', $format) ?: $format->name;
+                echo '<option value="' . esc_attr($format->slug) . '">' . esc_html($label) . '</option>';
+            }
+            ?>
+        </select>
     </div>
 
     <div class="filters date">
         <label class="filter_label" for="date_filter">DATES</label>
-        <div class="dropdown" id="date_dropdown">
-            <button class="dropdown_toggle">TRIER PAR<i class="fas fa-chevron-down"></i></button>
-            <ul class="dropdown_list">
-                <li data-value="recent" data-label='plus récentes'>Plus récentes</li>
-                <li data-value="old" data-label='plus anciennes'>Plus anciennes</li>
-            </ul>
-        </div>
+        <select class="dropdown_list" id="date_dropdown">
+            <option value="">TRIER PAR</option>
+            <option value="recent">Plus récentes</option>
+            <option value="old">Plus anciennes</option>
+        </select>
     </div>
-</section>
+</div>
+
+
+
 
 <?php
 // parametre de la requete pour afficher les photos du catalogue
