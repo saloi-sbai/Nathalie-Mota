@@ -21,34 +21,4 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 });
 
-// bouton charger plus
-// const loadMore = jQuery("#load_more_button");
-// function initializeLoadMore() {
-//   let currentPage = 1;
-//   loadMore.on("click", function (event) {
-//     event.preventDefault();
-//     currentPage++;
-//     jQuery.ajax({
-//       type: "POST",
-//       url: "http://localhost/nathalie-mota/wp-admin/admin-ajax.php",
-//       dataType: "json",
-//       data: {
-//         action: "loadMore",
-//         paged: currentPage,
-//       },
-//       success: function (response) {
-//         jQuery(".photos_container").append(response.html);
-//         checkIfMorePosts(response);
-//       },
-//     });
-//   });
-// }
-// function checkIfMorePosts(res) {
-//   if (!res.has_more_posts) {
-//     loadMore.hide();
-//     console.log("Response : Has no more posts");
-//   } else {
-//     loadMore.show();
-//     console.log("Response : Has more posts");
-//   }
-// }
+
