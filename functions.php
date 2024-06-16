@@ -10,14 +10,17 @@ function theme_enqueue_styles()
     wp_enqueue_script('jquery-cdn', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js', array(), '3.7.1', true);
 
     wp_enqueue_style('theme-style', get_stylesheet_directory_uri() . '/assets/css/theme.css', array(), filemtime(get_stylesheet_directory() . '/assets/css/theme.css'));
-    wp_enqueue_style('style', get_stylesheet_directory_uri() . '/assets/css/style.css?tte=xtt', time());
+    wp_enqueue_style('style', get_stylesheet_directory_uri() . '/assets/css/style.css?tte=xt', time());
     //wp_enqueue_style('fontawesome', get_stylesheet_directory_uri() . '/assets/css/all.min.css');
-    //wp_enqueue_script('mon-script', get_theme_file_uri() . '/assets/scripts/script.js');
+    wp_enqueue_script('mon-script', get_theme_file_uri() . '/assets/scripts/script.js');
     //wp_enqueue_script('fontawesome-script', get_theme_file_uri() . '/assets/scripts/all.min.js');
     wp_enqueue_script('filtres-js', get_template_directory_uri() . '/assets/scripts/filtres.js', array('jquery'), null, true);
 
     // Affichage des images miniature (script JQuery)
     wp_enqueue_script('miniature', get_stylesheet_directory_uri() . '/assets/scripts/miniatures.js', array('jquery'), '1.0.0', true);
+    // script lightbox
+    wp_enqueue_script('lightbox', get_stylesheet_directory_uri() . '/assets/scripts/lightbox.js', array('jquery'), '1.0.0', true);
+
 
     // Bibliotheque Select2 pour les selects de tri
     wp_enqueue_script('select2-js', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js', array('jquery'), '4.0.13', true);

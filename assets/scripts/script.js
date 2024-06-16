@@ -19,6 +19,11 @@ document.addEventListener("DOMContentLoaded", function () {
       overlay.classList.add("hidden");
     }
   };
+
+  // afficher le formulaire de contact au clic sur le bouton contacter dans single-photo.php
+  const singlPhotoModal = document.querySelector(".modale-contact");
+  singlPhotoModal.onclick = function (event) {
+    event.preventDefault(); // Empêche le comportement par défaut du lien
+    overlay.classList.remove("hidden");
+  };
 });
-
-

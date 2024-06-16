@@ -1,0 +1,29 @@
+#container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+/*************** menu de navigation *******************/
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.menu a {
+  text-decoration: none;
+  font-family: "space-mono";
+  padding: 8px 16px;
+  color: #000000;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23.7px;
+  text-transform: uppercase;
+}

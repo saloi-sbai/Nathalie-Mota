@@ -3,3 +3,25 @@
 @import "./block-photo";
 @import "./photo-container";
 @import "./single-photo";
+@import "./custom-select";
+@import "./lightbox";
+@import "./header";
+@import "./footer";
+@import "./modale";
+
+// import fonts
+/************************** fonts ***************************/
+@font-face {
+  font-family: "space-mono";
+  src: url("../fonts/SpaceMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: regular;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-Regular.woff2") format("woff2");
+  font-weight: 300;
+  font-style: regular;
+  font-display: swap;
+}

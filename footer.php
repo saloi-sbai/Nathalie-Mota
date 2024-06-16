@@ -10,6 +10,9 @@
 </div>
 <?php get_template_part('template-parts/contact-modal'); ?>
 
+<!-- affichage de la lightbox -->
+<?php get_template_part('template-parts/lightbox'); ?>
+
 <?php wp_footer() ?>
 
 </body>

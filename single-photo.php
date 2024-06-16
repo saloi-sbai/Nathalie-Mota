@@ -100,4 +100,5 @@ $nextThumbnailURL = $nextPost ? get_the_post_thumbnail_url($nextPost->ID, 'thumb
     </div>
 </section>
 
+
 <?php get_footer(); ?>
