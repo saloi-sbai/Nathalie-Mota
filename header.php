@@ -14,20 +14,27 @@
 <body <?php body_class() ?>>
     <?php wp_body_open() ?>
 
-    <div id="container">
+    <!-- <div id="container"> -->
         <header class="nav-bar">
-            <div class="logo"><?php
-                                the_custom_logo();
-                                ?></div>
-
             <nav class="menu">
+                <div class="logo"><?php
+                                    the_custom_logo();
+                                    ?></div>
+                <!-- Menu burger -->
+                <div class="burgerMenu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+
                 <div class="main-menu">
                     <?php
                     wp_nav_menu(array(
                         'theme_location' => 'primary_menu',
+                        'container'      => 'false',
+                        'menu_class'     => 'navMenu',
                     ))
                     ?>
-
                 </div>
 
             </nav>

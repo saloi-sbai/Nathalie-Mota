@@ -134,8 +134,6 @@ label {
   height: 100%;
 }
 
-/***** CSS POUR LES PHOTOS SIMILAIRES *****/
-/******************************************/
 /* Styles pour chaque bloc des photos  */
 .block__photo {
   flex-shrink: 0;
@@ -184,7 +182,7 @@ label {
   transition: opacity 0.3s, background-color 0.3s;
   /* Ajustements responsives au survol */
   /* Styles pour les titres dans l'overlay */
-  /* Styles pour l'icône de l'œil au survol */
+  /* Styles pour l'icône de l'oeil au survol */
   /* Styles pour l'icône de plein écran au survol */
 }
 .block__photo .overlay:hover {
@@ -293,8 +291,6 @@ label {
   }
 }
 
-/***** CSS bloc photo page d'accueil *****/
-/*****************************************/
 .blockCatalogue {
   display: flex;
   flex-wrap: wrap;
@@ -304,7 +300,7 @@ label {
   gap: 10px;
 }
 
-/* Bouton load-more accueil */
+/* Bouton charger plus accueil */
 #viewMore {
   display: block;
   position: relative;
@@ -1115,28 +1111,149 @@ label {
 .nav-bar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   height: 80px;
 }
-
-.menu {
+.nav-bar .menu {
   list-style: none;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.nav-bar .menu .logo img {
+  width: 215px;
+  height: 15px;
+}
+.nav-bar .menu .main-menu {
+  display: flex;
   align-items: center;
 }
-
-.menu a {
-  text-decoration: none;
+.nav-bar .menu .main-menu .navMenu {
+  display: flex;
+  gap: 30px;
+  list-style-type: none;
+}
+.nav-bar .menu .main-menu .navMenu li {
   font-family: "space-mono";
-  padding: 8px 16px;
-  color: #000000;
   font-size: 16px;
-  font-weight: 400;
-  line-height: 23.7px;
   text-transform: uppercase;
 }
+.nav-bar .menu .main-menu .navMenu li a {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.nav-bar .menu .main-menu .navMenu li a:hover {
+  font-weight: 700;
+}
 
+/* Menu BURGER */
+@media screen and (max-width: 768px) {
+  .nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    padding-inline: 16px;
+  }
+  .nav-bar.open {
+    position: relative;
+    z-index: 2;
+    animation: openNav 1.5s ease-in-out 0s forwards;
+    -webkit-animation: openNav 1.5s ease-in-out 0s forwards;
+  }
+  .nav-bar .menu .burgerMenu {
+    width: 30px;
+    height: 20px;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  .nav-bar .menu .burgerMenu .bar {
+    width: 100%;
+    height: 4px;
+    background-color: black;
+    transition: transform 0.3s ease-in-out;
+  }
+  .nav-bar .menu .burgerMenu.open .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .nav-bar .menu .burgerMenu.open .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-bar .menu .burgerMenu.open .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  .nav-bar .menu .main-menu {
+    display: flex !important;
+    flex-direction: column;
+    position: absolute;
+    z-index: 999;
+    top: 50px;
+    left: -16px;
+    right: 0;
+    background-color: #e00000;
+    width: 100vw;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 1.2s ease-in-out, opacity 1.2s ease-in-out;
+  }
+  .nav-bar .menu .main-menu.open {
+    max-height: 40vh;
+    opacity: 1;
+  }
+  .nav-bar .menu .main-menu.close {
+    animation: closeNav 1.5s ease-in-out 0s forwards;
+    -webkit-animation: closeNav 1.5s ease-in-out 0s forwards;
+  }
+  .nav-bar .menu .main-menu .navMenu {
+    flex-direction: column;
+    gap: 18px;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 0;
+  }
+  .nav-bar .menu .main-menu .navMenu li {
+    font-size: 44px !important;
+  }
+  .nav-bar .menu .main-menu .navMenu li a {
+    color: #fff !important;
+  }
+}
+@keyframes openNav {
+  0% {
+    transform: translateY(-100%);
+    -webkit-transform: translateY(-100%);
+    -moz-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    -o-transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes closeNav {
+  0%, 100% {
+    max-height: 40vh;
+    opacity: 1;
+  }
+  80% {
+    max-height: 0;
+    opacity: 0;
+  }
+}
+/* Ajustement pour la tablette */
+@media only screen and (min-width: 768px) and (max-width: 960px) {
+  header {
+    padding-inline: 55px;
+  }
+}
 #menu-footer-menu {
   height: 40px;
   display: flex;

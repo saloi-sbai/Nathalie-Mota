@@ -7,7 +7,7 @@
     ?>
 
 </footer>
-</div>
+<!-- </div> -->
 <!-- affichage de la modal -->
 <?php get_template_part('template-parts/contact-modal'); ?>
 

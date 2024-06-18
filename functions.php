@@ -15,6 +15,7 @@ function theme_enqueue_styles()
     wp_enqueue_script('mon-script', get_theme_file_uri() . '/assets/scripts/script.js');
     //wp_enqueue_script('fontawesome-script', get_theme_file_uri() . '/assets/scripts/all.min.js');
     wp_enqueue_script('filtres-js', get_template_directory_uri() . '/assets/scripts/filtres.js', array('jquery'), null, true);
+    wp_enqueue_script('burger-menu', get_template_directory_uri() . '/assets/scripts/burger-menu.js', array('jquery'), null, true);
 
     // Affichage des images miniature (script JQuery)
     wp_enqueue_script('miniature', get_stylesheet_directory_uri() . '/assets/scripts/miniatures.js', array('jquery'), '1.0.0', true);
