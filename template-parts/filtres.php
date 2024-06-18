@@ -2,34 +2,33 @@
 <!-- PARTIE FILTRES DE LA PAGE D'ACCUEIL -->
 
 <?php
-// Définition des taxonomies
+// Définition des Labels des Taxonomies
 $taxonomy_labels = [
     'categorie' => 'CATÉGORIES',
     'format' => 'FORMATS',
     'annees' => 'TRIER PAR',
 ];
 
-// Début du conteneur #filtrePhoto
+// Début du conteneur #filtrePhoto (conteneur principal)
 echo "<div id='filtrePhoto'>";
 
-// Section de gauche avec les filtres catégorie et format
+// Section avec les filtres catégorie et format
 echo "<div class='left-filter filter-container' id='left-filter'>";
 
 // Boucle sur les taxonomies pour la section gauche (catégorie et format)
 foreach ($taxonomy_labels as $taxonomy_slug => $label) {
-    // Je retire 'annees' de la section gauche
+    // pour chaque taxonomie dans $taxonomy_labels, sauf 'annees', on effectue les opérations suivantes:
     if ($taxonomy_slug !== 'annees') {
         // Je récupére les termes de la taxonomie
         $terms = get_terms($taxonomy_slug);
 
-        // Je vérifie si des termes existent et qu'il n'y a pas d'erreur WordPress
+        // Je vérifie si les termes existent et qu'il n'y a pas d'erreur WordPress
         if ($terms && !is_wp_error($terms)) {
             // J'ajoute une classe CSS spécifique pour chaque select
             $select_class = 'custom-select ' . $taxonomy_slug . '-select';
 
-            // Début du conteneur pour la taxonomie
+            // creation des element html: Début du conteneur pour la taxonomie
             echo "<div class='taxonomy-container'>";
-            // Début de la balise label
             echo "<label for='$taxonomy_slug'>";
             // J'affiche le select avec l'ID et la classe appropriée
             echo "<select id='$taxonomy_slug' class='$select_class'>";

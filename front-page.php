@@ -1,8 +1,8 @@
 <?php get_header(); ?>
+
 <?php get_template_part('template-parts/banner'); ?>
 
-
-<!---------------------- filtres et galerie ------------------------------->
+<!---------- filtres et galerie --------->
 <section id="filtrePhoto">
     <?php get_template_part('template-parts/filtres'); ?>
 </section>
@@ -11,7 +11,7 @@
     <?php get_template_part('template-parts/photo-container'); ?>
 </section>
 
-<!-- Bouton pour charger plus de photos -->
+<!------ Bouton pour charger plus de photos ------->
 <div id="moreImage">
     <button id="viewMore" data-offset="8" data-url="">Charger plus</button>
 </div>

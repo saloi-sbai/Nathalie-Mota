@@ -1,10 +1,9 @@
 // Fonction pour attacher des événements aux images chargées
 function attachEventsToImages() {
-  // Votre logique d'attache d'événements ici
   console.log("Les photos se chargent");
 }
 
-// Fonction pour gérer le chargement du contenu additionnel
+// Fonction pour gérer le chargement du contenu 
 function loadMoreContent() {
   const offset = $("#viewMore").data("offset");
   const ajaxurl = ajax_params.ajax_url;

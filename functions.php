@@ -60,7 +60,7 @@ if (!function_exists('mytheme_register_nav_menu')) {
     add_action('after_setup_theme', 'mytheme_register_nav_menu', 0);
 }
 
-// Ajout du script load-more-photos.js et filtre.js avec wp_localize_script pour passer des paramètres AJAX
+// Ajout du script load-more.js et filtre.js avec wp_localize_script pour passer des paramètres AJAX
 function enqueue_load_more_photos_script()
 {
     wp_enqueue_script('load-more', get_stylesheet_directory_uri() . '/assets/scripts/load-more.js', array('jquery'), null, true);
@@ -86,10 +86,10 @@ function load_more_photos()
     // Arguments de la requête pour récupérer les photos
     $args = array(
         'post_type'      => 'photo',     // Type de publication : photo
-        'posts_per_page' => 8,          // Nombre de photos par page (-1 pour toutes)
-        'orderby'        => 'date',      // Tri aléatoire
-        'order'          => 'DESC',       // Ordre ascendant
-        'offset' => $_POST['offset']
+        'posts_per_page' => 8,          // Nombre de photos par page 
+        'orderby'        => 'date',      // Tri par date
+        'order'          => 'DESC',       // Ordre décroissant (les plus récentes en premier)
+        'offset' => $_POST['offset'] // Offset pour la pagination (le nombre de photos déja charger)
     );
 
     // Exécute la requête WP_Query avec les arguments
@@ -125,9 +125,9 @@ add_action('wp_ajax_nopriv_load_more_photos', 'load_more_photos');
 // Fonction pour filtrer les photos via AJAX
 function filter_photos()
 {
-    // Vérifiez si l'action est définie
+    // La fonction vérifie si l'action POST filter_photos est définie.
     if (isset($_POST['action']) && $_POST['action'] == 'filter_photos') {
-        // Récupérez les filtres et nettoyez-les
+        // Récupérez les filtres et nettoyez-les pour eviter les injections
         $filter = array_map('sanitize_text_field', $_POST['filter']);
 
         // Ajoutez des messages de débogage pour voir les valeurs reçues
@@ -144,7 +144,7 @@ function filter_photos()
             ),
         );
 
-        // Ajoutez la taxonomie pour la catégorie si elle est spécifiée
+        // Ajout des filtres à la requête: Filtrage par catégorie :
         if (!empty($filter['category'])) {
             $args['tax_query'][] = array(
                 'taxonomy' => 'categorie',
@@ -153,12 +153,12 @@ function filter_photos()
             );
         }
 
-        // Ajoutez la taxonomie pour l'année si elle est spécifiée
+        // Filtrage par année :
         if (!empty($filter['years'])) {
             $args['order'] = ($filter['years'] == 'date_desc') ? 'DESC' : 'ASC';
         }
 
-        // Ajoutez la taxonomie pour le format si elle est spécifiée
+        // Filtrage par format :
         if (!empty($filter['format'])) {
             $args['tax_query'][] = array(
                 'taxonomy' => 'format',
@@ -184,7 +184,7 @@ function filter_photos()
                 error_log('Photo ID: ' . $photoId);
                 error_log('Reference: ' . $reference);
 
-                // Affiche le bloc de photo
+                // Si des photos correspondent aux critères de filtrage, elles sont affichées en incluant le modèle template-parts/block-photo.
                 get_template_part('template-parts/block-photo');
             endwhile;
 
@@ -196,8 +196,7 @@ function filter_photos()
         }
     }
 
-    // Assurez-vous que votre code renvoie la sortie souhaitée pour le traitement AJAX
-    die();
+    die(); //  arrête l'exécution du script
 }
 
 // Hook pour les utilisateurs connectés

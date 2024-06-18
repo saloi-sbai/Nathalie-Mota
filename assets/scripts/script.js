@@ -1,4 +1,4 @@
-// modal
+// modal de la page contact 
 document.addEventListener("DOMContentLoaded", function () {
   console.log("Le DOM est chargé.");
   var overlay = document.getElementById("overlay");

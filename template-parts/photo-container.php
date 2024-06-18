@@ -6,7 +6,7 @@ $args = array(
     'post_type'      => 'photo',
     'posts_per_page' => 8,
     'orderby'        => 'date',
-    'order'          => 'DESC',
+    'order'          => 'DESC', // trie les posts par date décroissante (les plus récents en premier)
 );
 
 // Initialisation de la requête WP_Query

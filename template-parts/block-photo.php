@@ -1,5 +1,4 @@
-<!-- Template pour les blocs photos de vous aimerez aussi et accueil -->
-
+<!-- Template pour les blocs photos accueil et de vous aimerez aussi (single page)  -->
 
 <?php
 // Je récupère l'ID de la photo
@@ -18,9 +17,9 @@ $reference = get_field('reference');
 $categories = get_the_terms(get_the_ID(), 'categorie');
 $categorie = !empty($categories) ? $categories[0]->name : '';
 
-// Affichage du bloc de photo
 ?>
 
+<!-- Affichage du bloc de photo -->
 <div class="block__photo">
     <!-- Affichage de la photo avec son URL et son attribut alt -->
     <img src="<?php echo esc_url($photoId); ?>" alt="<?php the_title_attribute(); ?>">
