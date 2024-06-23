@@ -7,14 +7,14 @@
 .hero_banner_title {
   font-family: "space-mono";
   font-style: italic;
-  font-size: 9vw;
+  font-size: 8vw;
   font-weight: 10vh;
   white-space: nowrap;
   text-align: center;
   position: absolute;
-  -webkit-text-stroke: 1px #ffffff;
+  -webkit-text-stroke: 3px #ffffff;
   -webkit-text-fill-color: rgba(0, 0, 0, 0);
-  top: 50%;
+  top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -25,6 +25,11 @@
   object-fit: cover;
 }
 
+@media screen and (max-width: 900px) {
+  .hero_banner_title {
+    -webkit-text-stroke: 1px #ffffff;
+  }
+}
 /****** CSS de la partie filtres *******/
 /***************************************/
 .filtre {
@@ -858,8 +863,8 @@ label {
 
 /* Styles pour l'image de la lightbox */
 .lightboxImage {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 564px;
+  max-height: 495px;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -868,7 +873,7 @@ label {
 /* Styles pour le bouton de fermeture */
 .lightbox .lightboxClose {
   position: absolute;
-  top: 167px;
+  top: 40px;
   right: 22%;
   font-size: 23px;
   cursor: pointer;
@@ -890,7 +895,7 @@ label {
 /* Styles pour les boutons de navigation */
 .lightbox .lightboxPrevious,
 .lightbox .lightboxNext {
-  font-family: space_monoregular;
+  font-family: "space-mono";
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
@@ -989,7 +994,7 @@ label {
 
 /* Styles pour le texte de référence */
 .lightboxReference {
-  font-family: PoppinsRegular;
+  font-family: "Poppins";
   font-size: 18px;
   font-weight: 500;
   line-height: 21px;
@@ -997,8 +1002,8 @@ label {
   position: absolute;
   text-transform: uppercase;
   z-index: 1;
-  bottom: 215px;
-  left: 431px;
+  bottom: 150px;
+  left: 480px;
   color: #fff;
   width: 170px;
   height: 21px;
@@ -1031,7 +1036,7 @@ label {
 
 /* Styles pour le texte de catégorie */
 .lightboxCategorie {
-  font-family: space_monoregular;
+  font-family: "space-mono";
   font-size: 18px;
   font-weight: 400;
   line-height: 21px;
@@ -1039,8 +1044,8 @@ label {
   position: absolute;
   text-transform: uppercase;
   z-index: 1;
-  bottom: 215px;
-  right: 427px;
+  bottom: 150px;
+  right: 480px;
   color: #fff;
 }
 @media screen and (min-width: 300px) and (max-width: 400px) {
@@ -1117,7 +1122,7 @@ label {
 .nav-bar .menu {
   list-style: none;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
 }
@@ -1333,7 +1338,7 @@ label {
 
 #contact-modal label {
   display: block;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins";
   font-size: 12px;
   font-weight: 500;
   margin-bottom: 24px;
@@ -1341,10 +1346,9 @@ label {
 }
 
 #contact-modal input[type=text],
-#contact-modal input[type=email],
-#contact-modal input[type=submit] {
+#contact-modal input[type=email] {
   width: 263px;
-  height: 40px;
+  height: 30px;
   border-radius: 8px;
   border: 1px solid #c4c4c4;
 }
@@ -1362,10 +1366,10 @@ label {
   height: 50px;
   background-color: #d8d8d8;
   color: #000;
-  border-radius: 2px;
   box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.02);
   border: none;
   cursor: pointer;
+  font-family: "Poppins";
 }
 
 .wpcf7-spinner {

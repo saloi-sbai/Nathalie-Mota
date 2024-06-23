@@ -19,8 +19,8 @@
 
 /* Styles pour l'image de la lightbox */
 .lightboxImage {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 564px;
+  max-height: 495px;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -29,7 +29,7 @@
 /* Styles pour le bouton de fermeture */
 .lightbox .lightboxClose {
   position: absolute;
-  top: 167px;
+  top: 40px;
   right: 22%;
   font-size: 23px;
   cursor: pointer;
@@ -151,8 +151,8 @@
   text-transform: uppercase;
 
   z-index: 1;
-  bottom: 215px;
-  left: 431px;
+  bottom: 150px;
+  left: 480px;
   color: #fff;
 
   width: 170px;
@@ -192,8 +192,8 @@
   text-transform: uppercase;
   z-index: 1;
 
-  bottom: 215px;
-  right: 427px;
+  bottom: 150px;
+  right: 480px;
   color: #fff;
 
   @media screen and (min-width: 300px) and (max-width: 400px) {

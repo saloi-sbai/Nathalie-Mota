@@ -40,17 +40,16 @@
 }
 #contact-modal label {
   display: block;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins";
   font-size: 12px;
   font-weight: 500;
   margin-bottom: 24px;
   color: #000;
 }
 #contact-modal input[type="text"],
-#contact-modal input[type="email"],
-#contact-modal input[type="submit"] {
+#contact-modal input[type="email"] {
   width: 263px;
-  height: 40px;
+  height: 30px;
   border-radius: 8px;
   border: 1px solid #c4c4c4;
 }
@@ -66,10 +65,10 @@
   height: 50px;
   background-color: #d8d8d8;
   color: #000;
-  border-radius: 2px;
   box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.02);
   border: none;
   cursor: pointer;
+  font-family: "Poppins";
 }
 .wpcf7-spinner {
   display: none; /*permet de centrer le bouton */
