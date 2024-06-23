@@ -3,7 +3,7 @@ function attachEventsToImages() {
   console.log("Les photos se chargent");
 }
 
-// Fonction pour gérer le chargement du contenu 
+// Fonction pour gérer le chargement du contenu
 function loadMoreContent() {
   const offset = $("#viewMore").data("offset");
   const ajaxurl = ajax_params.ajax_url;
@@ -55,4 +55,4 @@ $(document).on("click", "#moreImage #viewMore", function () {
 });
 
 // Ce message s'affichera dans la console lorsque le script JS sera chargé
-console.log("Le JS du bouton charger plus s'est correctement chargé");
+console.log("Le JS du bouton charger plus est bien chargé");

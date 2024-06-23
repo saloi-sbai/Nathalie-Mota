@@ -14,7 +14,7 @@
 <body <?php body_class() ?>>
     <?php wp_body_open() ?>
 
-    <!-- <div id="container"> -->
+    <div id="container">
         <header class="nav-bar">
             <nav class="menu">
                 <div class="logo"><?php

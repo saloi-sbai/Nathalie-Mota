@@ -12,9 +12,9 @@ $formats = get_the_terms(get_the_ID(), 'format');
 $FORMATS = $formats ? ucwords($formats[0]->name) : '';
 
 // Récupération des années de la taxonomie 'annee'
-$annees_terms = get_the_terms(get_the_ID(), 'annee');
-$annee = ($annees_terms && !is_wp_error($annees_terms)) ? $annees_terms[0]->name : 'Non défini';
-
+// $annees_terms = get_the_terms(get_the_ID(), 'annee');
+// $annee = ($annees_terms && !is_wp_error($annees_terms)) ? $annees_terms[0]->name : 'Non défini';
+$annee = get_the_date('Y');
 // Définition de l'URL des vignettes pour le post précédent et suivant
 $nextPost = get_next_post();
 $previousPost = get_previous_post();

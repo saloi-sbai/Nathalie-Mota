@@ -1,4 +1,4 @@
-// modal de la page contact 
+// modal de la page contact
 document.addEventListener("DOMContentLoaded", function () {
   console.log("Le DOM est chargé.");
   var overlay = document.getElementById("overlay");
@@ -8,6 +8,11 @@ document.addEventListener("DOMContentLoaded", function () {
   contactLink.onclick = function (event) {
     event.preventDefault(); // Empêche le comportement par défaut du lien
     overlay.classList.remove("hidden");
+    const reference = document.getElementById("single-reference");
+    const formulaire = document.getElementById("ref-form");
+    if (reference) {
+      formulaire.value = reference.innerHTML;
+    }
   };
 
   closeButton.onclick = function () {
