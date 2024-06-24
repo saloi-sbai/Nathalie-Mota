@@ -25,8 +25,9 @@ jQuery(document).ready(function ($) {
           years: years,
         },
       },
+      
+      // Gestion de la Réponse AJAX en Cas de Succès
       success: function (response) {
-        // Je met à jour la section des photos avec les résultats filtrés
         $("#photo__container").html(""); // Vide le conteneur de photos
         $("#photo__container").append(response); // Ajoute les nouvelles photos
         attachEventsToImages();

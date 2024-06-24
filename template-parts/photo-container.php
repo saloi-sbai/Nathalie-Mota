@@ -21,7 +21,7 @@ if ($photo_block->have_posts()) :
     // Boucle pour afficher chaque photo
     while ($photo_block->have_posts()) :
         $photo_block->the_post();
-        // J'utilise get_template_part avec le format par défaut (fallback)
+        // J'utilise get_template_part
         get_template_part('template-parts/block-photo', get_post_format());
     endwhile;
 

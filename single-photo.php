@@ -1,27 +1,30 @@
 <?php get_header(); ?>
 
 <?php
+// récupèrer les informations sur la photo principale
 $photoId = get_field('photo');
 $reference = get_field('reference');
 $refUppercase = strtoupper($reference);
 
-// Récupération des catégories de la photo principale
+// Récupération des termes de taxonomie catégories et format de la photo principale
 $categories = get_the_terms(get_the_ID(), 'categorie');
 $categorie_name = $categories ? $categories[0]->name : '';
 $formats = get_the_terms(get_the_ID(), 'format');
 $FORMATS = $formats ? ucwords($formats[0]->name) : '';
 
-// Récupération des années de la taxonomie 'annee'
+// Récupération de l'annee de publication de la photo
 // $annees_terms = get_the_terms(get_the_ID(), 'annee');
 // $annee = ($annees_terms && !is_wp_error($annees_terms)) ? $annees_terms[0]->name : 'Non défini';
 $annee = get_the_date('Y');
-// Définition de l'URL des vignettes pour le post précédent et suivant
+
+// recuperation des informations sur les posts suivants et précédents,et les URL des vignettes.
 $nextPost = get_next_post();
 $previousPost = get_previous_post();
 $previousThumbnailURL = $previousPost ? get_the_post_thumbnail_url($previousPost->ID, 'thumbnail') : '';
 $nextThumbnailURL = $nextPost ? get_the_post_thumbnail_url($nextPost->ID, 'thumbnail') : '';
 ?>
 
+<!-- affiche la photo, le titre, et des informations détaillées -->
 <section class="photos__catalog">
     <div class="photos__gallery">
         <div class="photo__detail">
@@ -43,6 +46,7 @@ $nextThumbnailURL = $nextPost ? get_the_post_thumbnail_url($nextPost->ID, 'thumb
         </div>
     </div>
 
+    <!-- section contact et navigation entre les photos -->
     <div class="contact__container">
         <div class="contact">
             <p class="interested">Cette photo vous intéresse ?</p>
@@ -64,7 +68,8 @@ $nextThumbnailURL = $nextPost ? get_the_post_thumbnail_url($nextPost->ID, 'thumb
         </div>
     </div>
 </section>
-
+<!-- section affiche des photos similaires en se basant sur la catégorie de la photo actuelle -->
+<!-- utilise une requête personnalisée pour récupérer et afficher deux photos aléatoires de la même catégorie -->
 <section class="suggestions">
     <div class="title__suggestion">
         <h3>VOUS AIMEREZ AUSSI</h3>
